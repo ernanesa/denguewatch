@@ -1,0 +1,36 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "indexing": {
+    "enabled": true,
+    "provider": "ollama",
+    "model": "nomic-embed-text",
+    "vectorStore": "lancedb",
+    "ollama": {
+      "baseUrl": "http://localhost:11434"
+    },
+    "searchMinScore": 0.4,
+    "searchMaxResults": 50,
+    "embeddingBatchSize": 200,
+    "scannerMaxBatchRetries": 3,
+    "fileExtensions": [
+      ".cs",
+      ".csproj",
+      ".props",
+      ".targets",
+      ".sln",
+      ".slnx",
+      ".json",
+      ".jsonc",
+      ".md",
+      ".yaml",
+      ".yml",
+      ".py",
+      ".sh",
+      ".sql",
+      ".txt"
+    ]
+  },
+  "experimental": {
+    "batch_tool": true
+  }
+}
