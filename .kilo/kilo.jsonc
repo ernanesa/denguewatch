@@ -1,5 +1,164 @@
 {
   "$schema": "https://app.kilo.ai/config.json",
+  "mcp": {
+    "microsoft-learn": {
+      "type": "remote",
+      "url": "https://learn.microsoft.com/api/mcp",
+      "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+    "sequentialthinking": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "enabled": true
+    },
+    "memory": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "environment": {
+        "MEMORY_FILE_PATH": "/home/ernane/.kilo-study-memory.jsonl"
+      },
+      "enabled": true
+    },
+    "nuget": {
+      "type": "local",
+      "command": [
+        "dnx",
+        "NuGet.Mcp.Server",
+        "--source",
+        "https://api.nuget.org/v3/index.json",
+        "--yes"
+      ],
+      "enabled": true,
+      "timeout": 60000
+    },
+    "aws-knowledge": {
+      "type": "remote",
+      "url": "https://knowledge-mcp.global.api.aws",
+      "enabled": false
+    },
+    "aws-documentation": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "awslabs.aws-documentation-mcp-server@latest"
+      ],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_DOCUMENTATION_PARTITION": "aws"
+      },
+      "enabled": false,
+      "timeout": 60000
+    },
+    "terraform": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@hashicorp/terraform-mcp@latest"
+      ],
+      "enabled": false,
+      "timeout": 60000
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest",
+        "--isolated"
+      ],
+      "enabled": false,
+      "timeout": 60000
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--isolated"
+      ],
+      "enabled": false,
+      "timeout": 60000
+    },
+    "angular-cli": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@angular/cli@latest",
+        "mcp"
+      ],
+      "enabled": false,
+      "timeout": 60000
+    },
+    "postgres": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "postgres-mcp",
+        "--access-mode=restricted"
+      ],
+      "environment": {
+        "DATABASE_URI": "{env:STUDY_PG_READONLY_URI}"
+      },
+      "enabled": false,
+      "timeout": 60000
+    },
+    "kubernetes": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "kubernetes-mcp-server@latest",
+        "--read-only"
+      ],
+      "enabled": false,
+      "timeout": 60000
+    },
+    "github": {
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+      },
+      "enabled": false
+    },
+    "azure": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@azure/mcp@latest",
+        "server",
+        "start"
+      ],
+      "enabled": false,
+      "timeout": 60000
+    }
+  },
+  "permission": {
+    "microsoft-learn_*": "allow",
+    "context7_*": "allow",
+    "sequentialthinking_*": "allow",
+    "nuget_*": "allow",
+    "aws-knowledge_*": "allow",
+    "aws-documentation_*": "allow",
+    "terraform_*": "allow"
+  },
   "indexing": {
     "enabled": true,
     "provider": "ollama",
