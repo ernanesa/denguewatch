@@ -2,6 +2,7 @@ using api.Data.Documents;
 using api.DTOs.Cases;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace api.Services
 {
@@ -15,8 +16,12 @@ namespace api.Services
             {
                 DateOfBirth = request.DateOfBirth!.Value,
                 Sex = request.Sex!,
-                Latitude = request.Latitude!.Value,
-                Longitude = request.Longitude!.Value
+                Location = new GeoJsonPoint<GeoJson2DGeographicCoordinates>(
+                    new GeoJson2DGeographicCoordinates(
+                        request.Longitude!.Value,
+                        request.Latitude!.Value
+                    )
+                )
             };
 
             await _cases.InsertOneAsync(document, cancellationToken: cancellationToken);
@@ -49,8 +54,12 @@ namespace api.Services
                 Id = objectId,
                 DateOfBirth = request.DateOfBirth!.Value,
                 Sex = request.Sex!,
-                Latitude = request.Latitude!.Value,
-                Longitude = request.Longitude!.Value
+                Location = new GeoJsonPoint<GeoJson2DGeographicCoordinates>(
+                    new GeoJson2DGeographicCoordinates(
+                        request.Longitude!.Value,
+                        request.Latitude!.Value
+                    )
+                )
             };
 
             var result = await _cases.ReplaceOneAsync(item => item.Id == objectId, replacement, cancellationToken: cancellationToken);
@@ -72,8 +81,8 @@ namespace api.Services
                 document.Id.ToString(),
                 document.DateOfBirth,
                 document.Sex,
-                document.Latitude,
-                document.Longitude
+                document.Location.Coordinates.Latitude,
+                document.Location.Coordinates.Longitude
             );
     }
 }
