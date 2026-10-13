@@ -27,6 +27,9 @@ services:
       ASPNETCORE_HTTP_PORTS: "8080"
       MongoSettings__ConnectionString: "mongodb://mongo:27017"
       MongoSettings__DatabaseName: "denguewatch"
+      DemoUser__SeedEnabled: "${DEMO_USER_SEED_ENABLED:-false}"
+      DemoUser__Email: "${DEMO_USER_EMAIL:-}"
+      DemoUser__Password: "${DEMO_USER_PASSWORD:-}"
     ports:
       - "5000:8080"
     networks:
