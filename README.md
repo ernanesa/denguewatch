@@ -176,7 +176,7 @@ This project follows an iterative evolution plan. Upcoming milestones include:
 
 * **Educational Project**: Uses synthetic and fictional data only. Do not use real patient or health data.
 * **Challenge Origin**: Built for the [Digital Innovation One (DIO)](https://web.dio.me) Bootcamp challenge.
-  * Course reference & direct links: [projetoNetMongo.md](projetoNetMongo.md)
+  * Course reference: [DIO lab — .NET API with MongoDB](https://www.dio.me/projects/construindo-um-projeto-de-uma-apinet-integrada-ao-mongodb)
   * Base repository reference: [gabrielfaraday/dotnet-mongo](https://github.com/gabrielfaraday/dotnet-mongo)
 
 ---

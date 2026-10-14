@@ -176,7 +176,7 @@ O DengueWatch foi desenhado para expansão contínua. As próximas fases do proj
 
 * **Projeto Educacional**: Utiliza dados estritamente sintéticos e fictícios. Não utilize dados reais de pacientes ou saúde pública.
 * **Origem do Desafio**: Desenvolvido para o desafio prático de laboratório da [Digital Innovation One (DIO)](https://web.dio.me).
-  * Informações e links das aulas do curso: [projetoNetMongo.md](projetoNetMongo.md)
+  * Referência do curso: [Laboratório DIO — API .NET com MongoDB](https://www.dio.me/projects/construindo-um-projeto-de-uma-apinet-integrada-ao-mongodb)
   * Repositório de referência do expert: [gabrielfaraday/dotnet-mongo](https://github.com/gabrielfaraday/dotnet-mongo)
 
 ---
