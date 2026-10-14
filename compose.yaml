@@ -25,6 +25,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_HTTP_PORTS: "8080"
+      Jwt__Key: "${JWT_KEY:-}"
       MongoSettings__ConnectionString: "mongodb://mongo:27017"
       MongoSettings__DatabaseName: "denguewatch"
       DemoUser__SeedEnabled: "${DEMO_USER_SEED_ENABLED:-false}"

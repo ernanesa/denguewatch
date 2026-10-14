@@ -1,5 +1,6 @@
 using api.DTOs.Cases;
 using api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 
@@ -12,6 +13,7 @@ public sealed class CasesController(ICasesService cases) : ControllerBase
     private readonly ICasesService _cases = cases;
 
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult<CaseResponse>> CreateAsync(CreateCaseRequest request, CancellationToken cancellationToken)
     {
         var created = await _cases.CreateAsync(request, cancellationToken);
@@ -38,6 +40,7 @@ public sealed class CasesController(ICasesService cases) : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<IActionResult> UpdateAsync(string id, UpdateCaseRequest request, CancellationToken cancellationToken)
     {
         if (!ObjectId.TryParse(id, out _))
@@ -49,6 +52,7 @@ public sealed class CasesController(ICasesService cases) : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> DeleteAsync(string id, CancellationToken cancellationToken)
     {
         if (!ObjectId.TryParse(id, out _))
