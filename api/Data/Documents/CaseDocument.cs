@@ -10,6 +10,5 @@ public sealed class CaseDocument
     public ObjectId Id { get; set; }
     public DateTime DateOfBirth { get; set; }
     public string Sex { get; set; } = string.Empty;
-    [BsonElement("Localização")]
     public GeoJsonPoint<GeoJson2DGeographicCoordinates> Location { get; set; } = default!;
 }
